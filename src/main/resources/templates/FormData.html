@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Data</title>
+</head>
+<body>
+
+<ul>
+    <li><a href="/">Index</a></li>
+    <li><a href="/buku">Buku</a></li>
+</ul>
+<form th:object="${buku}" th:action="@{/buku/create}" method="post">
+   <input type="hidden" th:field="*{id}">
+    <input type="hidden" th:field="*{version}">
+    <table>
+        <tr>
+            <td>Penulis</td>
+            <td>:&nbsp;<input type="text" th:field="*{penulis}"/></td>
+        </tr>
+        <tr>
+            <td>Judul</td>
+            <td>:&nbsp;<input type="text" th:field="*{judul}"/></td>
+        </tr>
+        <tr>
+            <td>Kota</td>
+            <td>:&nbsp;<input type="text" th:field="*{kota}"/></td>
+        </tr>
+        <tr>
+            <td>Penerbit</td>
+            <td>:&nbsp;<input type="text" th:field="*{penerbit}"/></td>
+        </tr>
+        <tr>
+            <td>Tahun</td>
+            <td>:&nbsp;<input type="text" th:field="*{tahun}"/></td>
+        </tr>
+    </table>
+    <button type="submit">Simpan</button>
+</form>
+</body>
+</html>

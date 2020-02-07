@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Buku</title>
+</head>
+<body>
+<h1>Spring Web Simple Crud Mysql</h1>
+<ul>
+    <li><a href="/">Index</a></li>
+    <li><a href="/buku">Buku</a></li>
+</ul>
+<h4><li><a href="/buku/create">Tambah Buku</a></li></h4>
+<div th:if="${ not #lists.isEmpty(buku) }" >
+    <table>
+        <tr>
+            <th>Penulis</th>
+            <th>Judul</th>
+            <th>Kota</th>
+            <th>Penerbit</th>
+            <th>Tahun</th>
+            <th>Action</th>
+        </tr>
+        <tr th:each="buku : ${buku}" >
+            <td th:text="${buku.penulis}"></td>
+            <td th:text="${buku.judul}"></td>
+            <td th:text="${buku.kota}"></td>
+            <td th:text="${buku.penerbit}"></td>
+            <td th:text="${buku.tahun}"></td>
+            <td>
+                <a th:href="${'/buku/edit/'+buku.id}">Edit</a> |
+                <a th:href="${'/buku/delete/'+buku.id}">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
